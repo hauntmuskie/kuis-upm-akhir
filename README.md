@@ -5,11 +5,11 @@ Program (Kerja Kelompok 4) Kuis UPM Pemrograman Java Dasar Akhir
 ## Download Program
 Linux 
 ```
-soon
+git clone https://github.com/hauntmuskie/kuis-upm-akhir
 ```
 Windows
 ```
-soon
+https://github.com/hauntmuskie/kuis-upm-akhir/archive/refs/heads/dev.zip
 ```
 
 ## Struktur Program
