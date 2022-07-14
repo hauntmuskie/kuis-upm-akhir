@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
  */
 public class App {
 
-    public static void main(String[] args) throws IOException, NumberFormatException {
+    public static void main(String[] args) throws IOException {
         BufferedReader brInput = new BufferedReader(new InputStreamReader(System.in));
         String isContinue, exitProgram = "", loopAgain;
         int menuChoice;
@@ -35,7 +35,7 @@ public class App {
                 }
             }
 
-        } while (!(isContinue.equalsIgnoreCase("y") || isContinue.equalsIgnoreCase("n")) || exitProgram.equalsIgnoreCase("t"));
+        } while (!(isContinue.equalsIgnoreCase("y") || isContinue.equalsIgnoreCase("t")) || exitProgram.equalsIgnoreCase("t"));
 
         do {
             do {
@@ -89,12 +89,12 @@ public class App {
                 System.out.print("Ingin Mengulangi lagi? [y/T] > ");
                 loopAgain = brInput.readLine();
 
-                if (!(loopAgain.equalsIgnoreCase("y") || loopAgain.equalsIgnoreCase("n"))) {
+                if (!(loopAgain.equalsIgnoreCase("y") || loopAgain.equalsIgnoreCase("t"))) {
                     System.out.println("\nPilihan tidak diketahui..\nHarap Masukkan Pilihan Dengan Benar!\n");
 
                 }
 
-            } while (!(loopAgain.equalsIgnoreCase("y") || loopAgain.equalsIgnoreCase("n")));
+            } while (!(loopAgain.equalsIgnoreCase("y") || loopAgain.equalsIgnoreCase("t")));
 
             if (loopAgain.equalsIgnoreCase("y")) {
                 System.out.println("Looping Kembali");
