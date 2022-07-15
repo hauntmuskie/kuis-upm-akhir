@@ -94,27 +94,40 @@ public class App {
 
                 // Price Calculation
                 final int pricePerDay = 200_000;
-                int finalPriceTotal = 0;
+                int finalPriceTotal = 0, discountPrice = 0;
 
                 if (userRentCarCount >= 3) {
 
                     if (rentUserRentDays >= 3) {
                         finalPriceTotal = (userRentCarCount * rentUserRentDays) * pricePerDay - 200_000;
+                        discountPrice = 200_000;
                         
-                    } else {
+                    } else if (rentUserRentDays <= 2) {
                         finalPriceTotal = (userRentCarCount * rentUserRentDays) * pricePerDay - 100_000;
+                        discountPrice = 100_000;
 
                     }
+
+                } else if (userRentCarCount <= 2) {
+
+                    if (rentUserRentDays >= 3) {
+                        finalPriceTotal = (userRentCarCount * rentUserRentDays) * pricePerDay - 50_000;
+                        discountPrice = 50_000;
+
+                    } else if (rentUserRentDays <= 2) {
+                        finalPriceTotal = 0;
+                        discountPrice = 0;
+
+                    }
+                }
+
+
+                if (finalPriceTotal == 0) {
+                    System.out.println("\nAnda Tidak Mendapat Potongan..");
 
                 } else {
-
-                    if (rentUserRentDays >= 3) {    
-                        finalPriceTotal = (userRentCarCount * rentUserRentDays) * pricePerDay - 50_000;
-
-                    } else {
-                        finalPriceTotal = (userRentCarCount * rentUserRentDays) * pricePerDay;
-
-                    }
+                    System.out.println("\nAnda Mendapat Potongan Rp. " + discountPrice + ",-");
+                    
                 }
 
                 // Print output
