@@ -113,7 +113,7 @@ public class App {
 
                     } else {
                         finalPriceTotal = (userRentCarCount * rentUserRentDays) * pricePerDay;
-                        
+
                     }
                 }
 
@@ -184,7 +184,7 @@ public class App {
 
             }
 
-        } while (menuChoice > 4 || isReturn.equalsIgnoreCase("t"));
+        } while (!isReturn.equalsIgnoreCase("y"));
 
     brInput.close();
 
