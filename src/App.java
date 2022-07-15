@@ -10,10 +10,10 @@ public class App {
     public static void main(String[] args) throws IOException {
         BufferedReader brInput = new BufferedReader(new InputStreamReader(System.in));
         String isContinue = "", exitProgram = "", loopAgain, isReturn = "";
-        boolean isContinueBool = true;
+        boolean lanjutkanProgram = true;
         int menuChoice;
-        
-        while (isContinueBool) {
+
+        while (lanjutkanProgram) {
 
             System.out.print("Silahkan Tentukan Pilihan Menu Yang Mau Anda Kerjakan\nMulai Tentukan [y/T] > ");
             isContinue = brInput.readLine();
@@ -38,7 +38,7 @@ public class App {
 
             } else if (isContinue.equalsIgnoreCase("y")) {
                 System.out.println("Loading..");
-                isContinueBool = false;
+                lanjutkanProgram = false;
 
             } else if (!(isContinue.equalsIgnoreCase("y") || isContinue.equalsIgnoreCase("n"))) {
                 System.out.println("Pilihan tidak diketahui..\nHarap Masukkan Pilihan Dengan Benar!");
@@ -69,100 +69,122 @@ public class App {
                 }
 
             } while (menuChoice > 4);
-    
+
             switch (menuChoice) {
 
                 case 1:
-                System.out.println("#===================================#\n" + // Rionggo Rahardi
-                                    "     * Pilih Tarif Sewa Kendaraan *  \n" +
-                                    "#===================================#\n");
-                
-                System.out.println("*Promo IDUL ADHA");
-                System.out.println("#Kendaraan >= 3#\n" + 
-                                    "-Lama Sewa >= 3 Hari Potongan 200.000\n" +
-                                    "-Lama Sewa <= 2 Hari Potongan 100.000\n" +
-                                    "#Kendaraan <= 2#\n" +
-                                    "-Lama Sewa >= 3 Hari Potongan 50.000\n" +
-                                    "-Lama Sewa <= 2 Hari Tidak Dapat Potongan\n");
+                    System.out.println("#=========================================#\n" + // Rionggo Rahardi
+                                        "     * Pilih Tarif Sewa Kendaraan *  \n" +
+                                        "#=========================================#\n" +
+                                        "*Promo IDUL ADHA\n" +
+                                        "#Kendaraan >= 3#\n" +
+                                        "-Lama Sewa >= 3 Hari Potongan 200.000\n" +
+                                        "-Lama Sewa <= 2 Hari Potongan 100.000\n" +
+                                        "#Kendaraan <= 2#\n" +
+                                        "-Lama Sewa >= 3 Hari Potongan 50.000\n" +
+                                        "-Lama Sewa <= 2 Hari Tidak Dapat Potongan\n" +
+                                        "#=========================================#\n");
 
-                System.out.print("Masukan Penyewa Kendaraan      :  ");
-                String rentUserFullName = brInput.readLine();
-                System.out.print("Masukan Jumlah Sewa Kendaraan  :  ");
-                int userRentCarCount = Integer.valueOf(brInput.readLine());
-                System.out.print("Masukan Lama Sewa (Hari)       :  ");
-                int rentUserRentDays = Integer.valueOf(brInput.readLine());
+                    System.out.print("Masukan Penyewa Kendaraan      :  ");
+                    String rentUserFullName = brInput.readLine();
+                    System.out.print("Masukan Jumlah Sewa Kendaraan  :  ");
+                    int userRentCarCount = Integer.valueOf(brInput.readLine());
+                    System.out.print("Masukan Lama Sewa (Hari)       :  ");
+                    int rentUserRentDays = Integer.valueOf(brInput.readLine());
 
-                // Price Calculation
-                final int pricePerDay = 200_000;
-                int finalPriceTotal = 0, discountPrice = 0;
+                    // Price Calculation
+                    final int pricePerDay = 200_000;
+                    int finalPriceTotal = 0, discountPrice = 0;
 
-                if (userRentCarCount >= 3) {
+                    if (userRentCarCount >= 3) {
 
-                    if (rentUserRentDays >= 3) {
-                        finalPriceTotal = (userRentCarCount * rentUserRentDays) * pricePerDay - 200_000;
-                        discountPrice = 200_000;
-                        
-                    } else if (rentUserRentDays <= 2) {
-                        finalPriceTotal = (userRentCarCount * rentUserRentDays) * pricePerDay - 100_000;
-                        discountPrice = 100_000;
+                        if (rentUserRentDays >= 3) {
+                            finalPriceTotal = (userRentCarCount * rentUserRentDays) * pricePerDay - 200_000;
+                            discountPrice = 200_000;
+
+                        } else if (rentUserRentDays <= 2) {
+                            finalPriceTotal = (userRentCarCount * rentUserRentDays) * pricePerDay - 100_000;
+                            discountPrice = 100_000;
+
+                        }
+
+                    } else if (userRentCarCount <= 2) {
+
+                        if (rentUserRentDays >= 3) {
+                            finalPriceTotal = (userRentCarCount * rentUserRentDays) * pricePerDay - 50_000;
+                            discountPrice = 50_000;
+
+                        } else if (rentUserRentDays <= 2) {
+                            finalPriceTotal = 0;
+                            discountPrice = 0;
+
+                        }
+                    }
+
+                    if (finalPriceTotal == 0) {
+                        System.out.println("\nAnda Tidak Mendapat Potongan..");
+
+                    } else {
+                        System.out.println("\nAnda Mendapat Potongan Rp. " + discountPrice + ",-");
 
                     }
 
-                } else if (userRentCarCount <= 2) {
-
-                    if (rentUserRentDays >= 3) {
-                        finalPriceTotal = (userRentCarCount * rentUserRentDays) * pricePerDay - 50_000;
-                        discountPrice = 50_000;
-
-                    } else if (rentUserRentDays <= 2) {
-                        finalPriceTotal = 0;
-                        discountPrice = 0;
-
-                    }
-                }
-
-
-                if (finalPriceTotal == 0) {
-                    System.out.println("\nAnda Tidak Mendapat Potongan..");
-
-                } else {
-                    System.out.println("\nAnda Mendapat Potongan Rp. " + discountPrice + ",-");
-                    
-                }
-
-                // Print output
-                System.out.println("\nNama Penyewa        :   " + rentUserFullName);
-                System.out.println("Harga Kendaraan     :   " + (pricePerDay * userRentCarCount));
-                System.out.println("Jumlah Kendaraan    :   " + userRentCarCount);
-                System.out.println("Lama Sewa (Hari)    :   " + rentUserRentDays);
-                System.out.println("Total Harga         :   Rp. " + finalPriceTotal + ".-\n");
+                    // Print output
+                    System.out.println("\nNama Penyewa        :   " + rentUserFullName);
+                    System.out.println("Harga Kendaraan     :   " + (pricePerDay * userRentCarCount));
+                    System.out.println("Jumlah Kendaraan    :   " + userRentCarCount);
+                    System.out.println("Lama Sewa (Hari)    :   " + rentUserRentDays);
+                    System.out.println("Total Harga         :   Rp. " + finalPriceTotal + ".-\n");
 
                     break;
                 case 2:
                     System.out.println("2"); //
 
                     break;
-                case 3: 
-                
-                    System.out.println("3"); //
+                case 3:
+                    int tinggiPiramida;
+                    System.out.println( "#====================================#\n" + //Amelia Azra Pakaya
+                                        "     * MEMBUAT BINTANG PIRAMIDA *    \n" +
+                                        "#====================================#\n"); 
+                    
+                    System.out.print("Masukkan Tinggi Piramida : ");
+                    tinggiPiramida = Integer.valueOf(brInput.readLine());
+                    System.out.println();
+
+                    for(int a = 1; a <= tinggiPiramida; a++){
+
+                        for(int b = tinggiPiramida-1; b >= a; b--){
+                            System.out.print(" ");
+                        }
+
+                        for(int c = 1; c <= a; c++){
+                            System.out.print("*");
+                        }
+
+                        for (int d = 1; d <= a-1; d++){
+                            System.out.print("*");
+                        }
+
+                        System.out.println();
+                    }
+
+                    System.out.println();
 
                     break;
                 case 4:
-                    System.out.println("4"); // 
+                    System.out.println("4"); //
 
                     break;
                 default:
-                    System.err.println("LMFAO"); // Turu
-
+                    System.out.println("Pilihan Tidak Diketahui..\nHarap Masukkan Pilihan Dengan Benar!");                        
                     break;
             }
 
-
             // Continue Program or Exit Program
 
-            boolean boolLoopAgain = true;
+            boolean returnToMenu = true;
 
-            while (boolLoopAgain) {
+            while (returnToMenu) {
                 System.out.print("Input Pilihan lagi? [y/T] > ");
                 loopAgain = brInput.readLine();
 
@@ -171,35 +193,35 @@ public class App {
 
                 } else if (loopAgain.equalsIgnoreCase("y")) {
                     System.out.println("Looping Kembali");
-                    boolLoopAgain = false;
-    
+                    returnToMenu = false;
+
                 } else if (loopAgain.equalsIgnoreCase("t")) {
 
                     do {
                         System.out.print("\nApakah Anda Yakin Ingin Keluar? [y/T] > ");
                         isReturn = brInput.readLine();
-    
+
                         if (isReturn.equalsIgnoreCase("y")) {
                             System.out.println("Anda Keluar Dari Program..");
                             System.exit(0);
-    
+
                         } else if (isReturn.equalsIgnoreCase("t")) {
                             System.out.println("Looping Kembali ke User Decision..\n");
-    
+
                         } else {
                             System.out.println("\nPilihan tidak diketahui..\nHarap Masukkan Pilihan Dengan Benar!");
-    
+
                         }
 
                     } while (!(isReturn.equalsIgnoreCase("y") || isReturn.equalsIgnoreCase("t")));
-    
-                }
 
-            }
+                } // End of if-else if-else
+
+            } // While Loop
 
         } while (!isReturn.equalsIgnoreCase("y"));
 
-    brInput.close();
+        brInput.close();
 
     }
 }
