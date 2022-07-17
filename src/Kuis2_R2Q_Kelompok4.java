@@ -197,33 +197,31 @@ public class Kuis2_R2Q_Kelompok4 {
 
                     break;
                 case 4: // Farden Ramzy Muharram
-                    int input;
-                    long index;
-                    String kodeBarang;
                     System.out.println("----------------------------------------------------");
                     System.out.println("      === Data Pemesanan Gamis/Sarimbit ===        ");
                     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     System.out.print("Masukkan Nama Penjaga      : ");
                     String namaPenjaga = brInput.readLine();
-
                     System.out.print("Masukkan Banyaknya Pesanan : ");
-                    input = Integer.valueOf(brInput.readLine());
-
+                    
+                    int input = Integer.valueOf(brInput.readLine());
                     int[] P = new int[input];
-                    long totalPendapatan = 0, hargaPesanan = 0, totalKeuntungan = 0, pendapatanBersih = 0;
+                    String kodeBarang = "";
+                    long totalPendapatan = 0, hargaPesanan = 0, totalKeuntungan = 0, pendapatanBersih = 0, index;
 
                     for (index = 0; index < P.length; totalPendapatan += hargaPesanan) {
                         index++;
                         System.out.print("Pesanan ke   " + index + "             : Rp.  ");
                         hargaPesanan = Long.parseLong(brInput.readLine());
-
                         System.out.print("Kode Barang                : ");
                         kodeBarang = brInput.readLine();
                     }
 
+                    // Price Calculation
                     totalKeuntungan = totalPendapatan * 10 / 100;
                     pendapatanBersih = totalPendapatan - totalPendapatan * 10 / 100;
 
+                    // Print output
                     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     System.out.println(" Hasil Total Pendapatan =          Rp." + totalPendapatan);
                     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
