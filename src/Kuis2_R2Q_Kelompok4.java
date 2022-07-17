@@ -2,14 +2,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-/**
- * App
- */
 public class Kuis2_R2Q_Kelompok4 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader brInput = new BufferedReader(new InputStreamReader(System.in));
-        String isContinue = "", exitProgram = "", loopAgain, isReturn = "";
+        String isContinue = "", exitProgram = "", isReturn = "", loopAgain;
         boolean lanjutkanProgram = true;
         int menuChoice;
 
@@ -41,7 +38,7 @@ public class Kuis2_R2Q_Kelompok4 {
                 lanjutkanProgram = false;
 
             } else if (!(isContinue.equalsIgnoreCase("y") || isContinue.equalsIgnoreCase("n"))) {
-                System.out.println("Pilihan tidak diketahui..\nHarap Masukan Pilihan Dengan Benar!");
+                System.out.println("\nPilihan tidak diketahui..\nHarap Masukan Pilihan Dengan Benar!\n");
 
             }
         }
@@ -121,8 +118,6 @@ public class Kuis2_R2Q_Kelompok4 {
                         }
                     }
 
-                    
-
                     if (finalPriceTotal == 0) {
                         System.out.println("\nAnda Tidak Mendapat Potongan..");
 
@@ -136,11 +131,36 @@ public class Kuis2_R2Q_Kelompok4 {
                     System.out.println("Harga Kendaraan     :   " + (pricePerDay * userRentCarCount));
                     System.out.println("Jumlah Kendaraan    :   " + userRentCarCount);
                     System.out.println("Lama Sewa (Hari)    :   " + userRentDaysLease);
-                    System.out.println("Total Harga         :   Rp. " + finalPriceTotal + ".-\n");
+                    System.out.println("Total Harga         :   Rp. " + finalPriceTotal + ".-");
+                    System.out.println();
 
                     break;
-                case 2:
-                    System.out.println("2"); //
+                case 2: // Siti Mawaddah
+                    int barisSegitiga;
+                    System.out.println( "#====================================#\n" +
+                                        " * MEMBUAT SEGITIGA SIKU-SIKU KANAN *    \n" +
+                                        "#====================================#\n"); 
+                    
+                    System.out.print("Masukkan Nilai Perulangan : ");
+                    barisSegitiga = Integer.valueOf(brInput.readLine());
+                    System.out.println();
+
+                    for (int i = barisSegitiga; i >= 1; i--){
+
+                        for (int j = 1; j <= barisSegitiga-i; ++j) {
+                            System.out.print(" ");
+
+                        }
+
+                        for (int k = 1; k <= i; ++k) {
+                            System.out.print("*");
+
+                        }
+
+                        System.out.print("\n");
+                    }
+
+                    System.out.println();
 
                     break;
                 case 3: // Amelia Azra Pakaya
@@ -211,13 +231,13 @@ public class Kuis2_R2Q_Kelompok4 {
                     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     System.out.println(" Pendapatan Bersih =               Rp." + pendapatanBersih);
                     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                    System.out.print("\n");
+                    System.out.println();
 
                     break;
                 default:
                     System.out.println("Pilihan Tidak Diketahui..\nHarap Masukan Pilihan Dengan Benar!");                        
                     break;
-            }
+            } // End Switch
 
             // Continue Program or Exit Program
 
