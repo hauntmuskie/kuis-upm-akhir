@@ -112,7 +112,7 @@ public class Kuis2_R2Q_Kelompok4 {
                             discountPrice = 50_000;
 
                         } else if (userRentDaysLease <= 2) {
-                            finalPriceTotal = 0;
+                            finalPriceTotal = (userRentCarCount * userRentDaysLease) * pricePerDay;
                             discountPrice = 0;
 
                         }
