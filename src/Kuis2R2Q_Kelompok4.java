@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Kuis2_R2Q_Kelompok4 {
+public class Kuis2R2Q_Kelompok4 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader brInput = new BufferedReader(new InputStreamReader(System.in));
